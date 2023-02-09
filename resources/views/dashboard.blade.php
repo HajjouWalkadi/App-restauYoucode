@@ -37,25 +37,22 @@
                     <th scope="col">Plat</th>
                     <th scope="col">Description</th>
                     <th scope="col">Date</th>
-                    {{-- <th scope="col">Price</th> --}}
                     <th scope="col">Actions</th>
-                    {{-- <th scope="col">Delete</th> --}}
                   </tr>
           </thead>
           <tbody>
                 @foreach($menus as $menu)
               <tr>
-                {{-- <th scope="row"></th> --}}
-                <td></td>
+                {{-- {{ $loop->iteration}} --}}
+                <td>{{$menu->id}}</td>
                 <td><img src="{{asset('/storage/'. $menu->image)}}" style="width: 90px;"></td>
-                {{-- <td>lorem</td> --}}
                 <td>{{$menu->name}}</td>
                 <td>{{$menu->description}}</td>
                 <td>{{$menu->date}}</td>
 
                 <td>
-                  <a href="" title="View Menu"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                  <a href="" title="Edit Menu"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                  {{-- <a href="" title="View Menu"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a> --}}
+                  <a href="Edit/{{$menu->id}}" title="Edit Menu"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
                   <form method="GET" action="Delete/{{$menu->id}}" accept-charset="UTF-8" style="display:inline">
                       {{-- {{ method_field('DELETE') }} --}}
@@ -63,18 +60,6 @@
                       <button href="" type="submit" class="btn btn-danger btn-sm" title="Delete Menu" onclick=""><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                   </form>
               </td>
-
-
-
-
-                {{-- <td><span onclick="" class="btn btn-success text-black"><i class="fas fa-edit text-white"></i></span></a></td>
-                      
-                <td>
-                  <a href="#" onclick="if(confirm('Are you sure want to delete this record !')){ document.querySelector('#delete-product-').submit();}"><span class="btn btn-danger text-black"><i class="fas fa-trash text-white"></i></span></a>
-                        <form action="" method="post" id="delete-product-">
-                          <input type="hidden" name="delete" value="">
-                        </form>
-                      </td> --}}
                     </tr>
                     @endforeach
                      

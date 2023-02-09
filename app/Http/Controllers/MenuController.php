@@ -69,7 +69,9 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $menus = Menu::find($id);
+        return view('/edit')->with('menus', $menus);
+        // return redirect('/dashboard');
     }
 
     /**
@@ -81,7 +83,18 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->input('name'));
+        // $input = $request->only(['name','image','description','date']);
+        // dd($input);
+
+        $data = [
+            'name' => $request->input('name'),
+            'image' => $request->file('image')->store('image','public'),
+            'description' => $request->input('description'),
+            'date' => $request->input('date'),
+        ];
+        Menu::where('id', $id)->update($data);
+        return redirect('/dashboard');
     }
 
     /**

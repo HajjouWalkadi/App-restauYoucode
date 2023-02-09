@@ -30,3 +30,6 @@ Route::middleware([
 
 Route::resource("menus",MenuController::class);
 Route::get('Delete/{id}',[MenuController::class, 'destroy']);
+Route::get('Edit/{id}',[MenuController::class, 'edit']);
+
+Route::post('Edit/EditMenu/{id}', [MenuController::class, 'update']);

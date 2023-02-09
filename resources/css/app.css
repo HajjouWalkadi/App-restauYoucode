@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.backkenke{
+    background:url(../img/golden.jpg) no-repeat;
+background-size: cover;
+
+}
+.loginbackgrn{
+
+background:url(../img/golden.jpg) no-repeat;
+background-size: cover;
+}
+
+.backlog{
+    background: rgba(243, 251, 251, 0.5);
+    border-radius: 9px;
+}
+.inpground{
+    background: rgba(243, 251, 251, 0.5);
+    opacity: .8;
+}

@@ -109,4 +109,13 @@ class MenuController extends Controller
         $menus->delete();
         return redirect('/dashboard');
     }
+
+
+
+    public function welcome(){
+        $menus = Menu::all();
+
+        // return $menus;
+        return view('welcome')->with('menus',$menus);
+    }
 }

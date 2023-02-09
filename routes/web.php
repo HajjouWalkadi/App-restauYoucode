@@ -13,9 +13,9 @@ use App\Http\Controllers\MenuController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware([
     'auth:sanctum',
@@ -27,6 +27,9 @@ Route::middleware([
     // })->name('dashboard');
     Route::get('dashboard', [MenuController::class, 'index'])->name('dashboard');
 });
+
+Route::get('/', [MenuController::class, 'welcome']);
+
 
 Route::resource("menus",MenuController::class);
 Route::get('Delete/{id}',[MenuController::class, 'destroy']);

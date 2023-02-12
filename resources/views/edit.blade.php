@@ -17,6 +17,7 @@
        
                        <input type="hidden" name="id" >
                        <div class="mb-3">
+                        <img src="{{asset('/storage/'. $menus->image)}}" style="width: 100px;"alt=""> 
                            <label class="form-label">Name</label>
                            <input type="text" name="name" class="form-control rounded" value="{{$menus->name}}" required/>
                        </div>

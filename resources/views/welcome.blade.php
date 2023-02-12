@@ -20,26 +20,33 @@
             body {
                 font-family: 'Nunito', sans-serif;
                 background-color: rgb(243 244 246);
+            
             }
+           
+            
         </style>
+        
     </head>
     <body class="antialiased">
 
-            <nav class="navbar navbar-expand-lg bg-body-secondary   shadow-lg bg-body-tertiary rounded  fixed-top">
+            <nav class="navbar navbar-expand-lg bg-body-secondary shadow-lg bg-body-tertiary fixed-top">
                 <div class="container-fluid">
                     <a href="{{ url('/') }}">
-                        <h6 class="ms-1 text-primary text-decoration-none fs-1">Restau YouCode</h6>
+                        <h5 class="ms-1 text-black text-decoration-none">Restau YouCode</h5>
+                        {{-- <img src="{{asset('picture/2YOU-logo-removebg.png')}}" alt="" class="w-100 m-0 px-0" height="90"> --}}
+                        {{-- <img src="{{asset(' picture/2YOU-logo-removebg.png')}}" alt="" class="w-100 m-0" height="90" object-fit="contain"> --}}
+
                     </a>
                     <div>
                     @if (Route::has('login'))
                 {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> --}}
                     @auth
-                    <button class="ms-2 btn border-success me-5 "><a href="{{ url('/dashboard') }}" class="text-success text-decoration-none fs-bold">Dashboard</a></button>
+                    <button class="ms-2 btn border-black me-5 "><a href="{{ url('/dashboard') }}" class="text-black text-decoration-none fs-bold">Dashboard</a></button>
                     @else
-                    <button class="ms-2 btn border-success"><a href="{{ route('login') }}" class="text-success text-decoration-none fs-bold">Log in</a></button>
+                    <button class="ms-2 btn border-black"><a href="{{ route('login') }}" class="text-black text-decoration-none fs-bold">Log in</a></button>
                        
                             @if (Route::has('register'))
-                            <button class="ms-2 btn border-success"><a href="{{ route('register') }}" class="text-success text-decoration-none fs-bold">Register</a></button>
+                            <button class="ms-2 btn border-black"><a href="{{ route('register') }}" class="text-black text-decoration-none fs-bold">Register</a></button>
                             @endif
                         </div>
                        
@@ -50,26 +57,25 @@
                 </div>
               </nav>
 
-              {{-- <div>
-                <img src="{{asset('images/default_image.jpg')}}" class="w-100 shadow-lg bg-body-tertiary" height="420">
-              </div> --}}
-              <div class="container">
+              <div class="foood">
+            <img src="{{asset('picture/foood.jpeg')}}" alt="" class="w-100 shadow-lg foood" height="500">
+              </div>
+              <div class="container ">
 
                <div class="text-center mt-2">
-                <h2 class="fw_bold text-success">Meals of this Week</h2>
+                <h2 class="fw_bold text-black">Our Menus</h2>
                </div>
 
-               <div class="container row mx-auto">
+               <div class="container row mx-auto ">
                 @foreach($menus as $menu)
                   <div class="col-lg-3 p-3 col-12">
                       <div class=" card">
-                          {{-- <img src="{{asset('image/'.$menu->image)}}" class="card-img-top" with="100"  height="160"> --}}
                           <img src="{{ asset('storage/'.$menu->image) }}" class="card-img-top" with="100"  height="160">
 
                       <div class="card-body">
                         <h5 class="card-title fw-bold">{{$menu->name}}</h5>
                         <p><span class="fw-bold">Date :</span> {{$menu->date}}</p>
-                        <p class="card-text text-success">{{$menu->description}}</p>
+                        <p class="card-text text-primary">{{$menu->description}}</p>
                       </div>
                     </div>
                   </div>

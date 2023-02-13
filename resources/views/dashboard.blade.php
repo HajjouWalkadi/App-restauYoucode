@@ -27,7 +27,17 @@
     </div> --}}
 
     <!-- Tableau des elements -->
-              
+              <h1>
+                @error('title')
+                  {{ $message }}
+              @enderror
+              @error('description')
+                {{ $message }}
+            @enderror
+            @error('date')
+              {{ $message }}
+          @enderror
+            </h1>
     <div class="overflow-scroll tab1 w-100" style="height:27rem;">
         <table class="table-striped  table table-hover">
           <thead>
@@ -64,7 +74,10 @@
                     @endforeach
                      
             </tbody>
-        </table>   
+        </table> 
+        <div class="d-flex justify-content-center">
+          {{ $menus->links() }}
+        </div>  
       </div>
 
       <!-- Game Product MODAL -->

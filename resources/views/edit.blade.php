@@ -24,7 +24,7 @@
 
            <div class="mb-3">
              <label for="image" class="col-form-label" id="image">Image</label>
-             <input type="file" class="form-control border rounded" id="images" name="image" required>
+             <input type="file" class="form-control border rounded" id="images" name="image" value="{{asset('/storage/'. $menus->image)}}" required>
            </div>
            
                        <div class="mb-0">

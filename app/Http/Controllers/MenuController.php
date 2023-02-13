@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PlatRequest;
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use Illuminate\Http\Client\Request as ClientRequest;
 
 class MenuController extends Controller
 {
@@ -14,9 +16,9 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::all();
+        $menus = Menu::orderBy('id','DESC')->paginate(4);
         // return view('profile.dashboard')->with('menus',$menus);
-        return view('dashboard')->with('menus',$menus);
+        return view('dashboard' , ['menus'=>$menus]);
     }
 
     /**
@@ -35,19 +37,22 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Menu $menu ,Request $request)
+    public function store(Menu $menu ,PlatRequest $request)
     {
+        $data = $request->validated();
         // dd($request->file('my_image'));
         // $input = $request->only(['dishTitle','my_image','description','dishDate']);
         // dd($input);
-        $data = [
-            'name' => $request->input('name'),
-            'image' => $request->file('image')->store('image','public'),
-            'description' => $request->input('description'),
-            'date' => $request->input('date'),
-        ];
+        // $data = [
+        //     'name' => $request->input('name'),
+        //     'image' => $request->file('image')->store('image','public'),
+        //     'description' => $request->input('description'),
+        //     'date' => $request->input('date'),
+        // ];
+        $data['image']=$request->file('image')->store('image','public');
         Menu::create($data);
         return redirect()->back()->with('flash_message','Dish Added!!');
+        // return "yfct";
     }
 
     /**

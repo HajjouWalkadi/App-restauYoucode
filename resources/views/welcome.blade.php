@@ -22,7 +22,11 @@
                 background-color: rgb(243 244 246);
             
             }
-           
+           .foood{
+            object-fit: cover;
+            width: 100%;
+            height: 500px;
+           }
             
         </style>
         
@@ -58,7 +62,7 @@
               </nav>
 
               <div class="foood">
-            <img src="{{asset('picture/foood.jpeg')}}" alt="" class="w-100 shadow-lg foood" height="500">
+            <img src="{{asset('picture/foood.jpeg')}}" alt="" class=" foood" >
               </div>
               <div class="container ">
 
@@ -70,7 +74,7 @@
                 @foreach($menus as $menu)
                   <div class="col-lg-3 p-3 col-12">
                       <div class=" card">
-                          <img src="{{ asset('storage/'.$menu->image) }}" class="card-img-top" with="100"  height="160">
+                          <img src="{{ asset('storage/'.$menu->image) }}" class="card-img-top" with="100"  height="200">
 
                       <div class="card-body">
                         <h5 class="card-title fw-bold">{{$menu->name}}</h5>
@@ -83,6 +87,9 @@
                     
                 </div>
               {{-- {{$menus->links('pagination::bootstrap-4')}} --}}
+              {{-- <div class="d-flex justify-content-center">
+                {{ $menus->links() }}
+              </div> --}}
             </div>
 
     </body>

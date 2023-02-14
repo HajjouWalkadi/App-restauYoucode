@@ -36,7 +36,7 @@
             <nav class="navbar navbar-expand-lg bg-body-secondary shadow-lg bg-body-tertiary fixed-top">
                 <div class="container-fluid">
                     <a href="{{ url('/') }}">
-                        <h5 class="ms-1 text-black text-decoration-none">Restau YouCode</h5>
+                        <h5 class="ms-1 text-black text-decoration-none">RestauCode</h5>
                         {{-- <img src="{{asset('picture/2YOU-logo-removebg.png')}}" alt="" class="w-100 m-0 px-0" height="90"> --}}
                         {{-- <img src="{{asset(' picture/2YOU-logo-removebg.png')}}" alt="" class="w-100 m-0" height="90" object-fit="contain"> --}}
 

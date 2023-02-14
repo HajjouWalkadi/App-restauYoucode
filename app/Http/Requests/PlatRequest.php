@@ -25,7 +25,7 @@ class PlatRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'image' => 'required|image:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image:jpeg,png,jpg,gif,jfif,svg|max:3000',
             'description' => 'required',
             'date' => 'required|date',
         ];
